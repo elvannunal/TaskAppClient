@@ -1,0 +1,37 @@
+<div class="form-wrapper">
+  <div class="form-container">
+    <h1 class="title">Giriş Yap</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="input-group">
+        <label for="username" class="username">Kullanıcı Adı</label>
+        <input type="text" name="username" formControlName="username" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="password" class="password">Şifre</label>
+        <input [type]="isShowPassword ? 'text' : 'password'" name="password" formControlName="password" required>
+        <i class="fa" [ngClass]="isShowPassword ? 'fa-eye' : 'fa-eye-slash'" (click)="togglePasswordVisibility()"></i>
+      </div>
+
+      <div class="forgot">
+        <div class="remember">
+          <input type="checkbox" id="remember" formControlName="rememberMe">
+          <label for="remember">Remember me</label>
+        </div>
+        <a href="#">Şifreni unuttun mu?</a>
+      </div>
+      <button class="sign-in" type="submit">Giriş Yap</button>
+
+      <div class="icons">
+        <i class="fa-brands fa-google"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <p class="sign-up">Hesabın yok mu?
+        <a (click)="routeRegister()">Kayıt Ol</a>
+        <!-- <a routerLink='/register'>Kayıt Ol</a> -->
+      </p>
+    </form>
+  </div>
+</div>

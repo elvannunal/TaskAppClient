@@ -1,0 +1,112 @@
+.wrapperSideBar{
+  border-right: 1.1px #DBDBDB solid;
+  width: 15pc;
+  height: 100vh;
+ /* background-color: whitesmoke;*/
+}
+.wrapperLeft{
+  padding-top:22px;
+  padding-bottom:18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1.1px #DBDBDB solid;
+}
+.logoImg{
+  width: 35px;
+}
+.captionSection{
+  padding-top:12px;
+  font-size: 13px;
+  line-height: 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.closeSideBar{
+  padding-top:-2px;
+  width: 23px;
+  color: #DBDBDB 
+}
+.wrapperSection{
+  border-bottom: 1.1px #DBDBDB solid;
+
+}
+.wrapperTask,.wrapperMember,.wrapperSettings{
+  /*color: #787486;*/
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 6px 20px;
+  background-color: transparent;
+  transition: all .5s;
+}
+.wrapperTask:hover,.wrapperMember:hover,.wrapperSettings:hover{
+  cursor: pointer;
+  background-color:  #8b81e355;
+}
+.icon{
+ /*color: #787486;*/
+  width: 23px;
+}
+.captionSubTitle{
+  font-size: 17px;
+  font-stretch: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 8px 3px 9px;
+}
+.teamsSection{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.captionTeam{
+ /*color: #787486;*/
+  font-size: 16px;
+  padding: 15px 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1.234px;
+}
+.plusIcon{
+  transform: rotate(45deg);
+  width: 25px;
+  /*color: #787486;*/
+  margin: 12px;
+  cursor:pointer;
+}
+.team {
+  cursor: pointer;
+ /*color: #787486;*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 13px 7px 20px;
+  background-color:  transparent;
+}
+.teamIcon{
+ /*color: #787486;*/
+  width: 23px;
+  margin-top: -10px;
+  margin-left: 15px;
+}
+.active{
+  background-color: #8b81e355;
+  border-radius: 31px;-color:  #8b81e355;
+}
+.colorDots{
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+.teamName{
+  padding-left: 6px;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+}
+.wrapperTeamName{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
