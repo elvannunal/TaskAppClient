@@ -22,9 +22,10 @@ export class SideBarComponent implements OnInit {
 
   teams: any;
   selectedIndex: number =0
-  selectedTeam: AllTeam=new AllTeam(0,"","") ;
-
+  isClicked:boolean=false;
+  isShowEditDelete:boolean=false
   allTeam: AllTeam[] = [];
+  activeTeamIndex: number | null = null;  // Track the active team index
 
   constructor(
     private router: Router,
@@ -46,20 +47,32 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  showOptions(index: number, team: AllTeam) {
-    if (this.selectedIndex === index) {
-      this.createNewTeam()
-    } else {
-      this.selectedIndex = index;
-      this.selectedTeam = team;
-      this.editTeam(team)
-    }
+  showOptions(isClicked:boolean,index:any){
+    this.isShowEditDelete=!this.isShowEditDelete
+
+    this.activeTeamIndex = this.activeTeamIndex === index ? null : index;
+
+  }
+
+  selectedTeam(team:AllTeam){
+    console.log("selected team",team)
   }
   createNewTeam() {
-    throw new Error('Method not implemented.');
+    console.log("selected team")
   }
   editTeam(team: AllTeam) {
-    throw new Error('Method not implemented.');
+    console.log("team team",team)
+  }
+  deleteTeam(team:AllTeam)
+  {
+    this.teamService.deleteTeam(team.id).subscribe({
+      next:(res)=>{
+        alert("Team successfl deleted!")
+      },
+      error:(err)=>{
+        console.log("error",err)
+      }
+    })
   }
 
 }
