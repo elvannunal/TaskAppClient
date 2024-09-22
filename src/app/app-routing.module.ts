@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/Auth/registerPage/register/regis
 import { AuthGuard } from './services/authGuard-service';
 import { HomePageComponent } from './components/HomePage/home-page/home-page.component';
 import { SideBarComponent } from './components/HomePage/side-bar/side-bar.component';
+import { TeamListComponent } from './components/Team/team-list/team-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home-page', component: HomePageComponent, canActivate: [AuthGuard] },
   { path: 'side-bar', component: SideBarComponent , canActivate: [AuthGuard]},
-
+  { path: 'team', loadChildren: () => import('./components/Team/team.module').then(m => m.TeamModule) }
 ];
 
 @NgModule({

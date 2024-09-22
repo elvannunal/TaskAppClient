@@ -27,7 +27,6 @@ export class TeamService {
     return this.http.delete<any>(`${environment.apiUrl}/Team/Delete/`+id);
 
   }
-
   updateTeam(data:any):Observable<any>{
     return this.http.put<CreateTeam>(`${environment.apiUrl}/Team/Update`, data);
 

@@ -1,0 +1,88 @@
+.topTeamWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teamNameAndFilterWrapper {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.teamName {
+  font-size: 37px;
+  font-weight: 500;
+  padding: 25px;
+}
+
+.icon {
+  height: 18px;
+}
+
+.addTaskIcon {
+  height: 18px;
+  margin-left: 70px;
+}
+
+.filterWrapper {
+  width: 120px;
+  height: 30px;
+  border: 1px #78748647 solid;
+  border-radius: 8px;
+  display: flex;
+  cursor: cell;
+  align-items: center;
+  justify-content: space-evenly;
+  letter-spacing: 3px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 28px;
+}
+
+.wrapperAddUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.addMember {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.teamsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.userBottomLine {
+  width: 120px;
+  height: 3px;
+}
+
+.team {
+  background: whitesmoke;
+  width: 250px;
+  height: 60vh;
+  margin: 12px;
+  padding: 12px;
+  display: flex;
+  border-radius: 20px;
+}
+
+.user {
+  display: flex;
+  height: fit-content;
+}
+
+.addTask {
+  height: fit-content;
+  padding-left: 22px;
+}
+
+.arrowIcon {
+  height: 28px;
+  margin: 12px;
+}

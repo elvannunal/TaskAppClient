@@ -92,27 +92,25 @@
         <p [style.background-color]="colorCodes[i]" class="colorDots"></p>
         <p class="teamName">{{ team.teamName }}</p>
       </div>
-      <div class="wrapperIcon" (click)="showOptions(this.isClicked,i)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="teamIcon">
+      <div class="wrapperIcon" (click)="showOptions(i)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="teamIcon">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
         </svg>
       </div>
 
-
-      <div *ngIf="isShowEditDelete">
+      <div *ngIf="activeTeamIndex === i" class="editCls">
         <!-- Dropdown Menu -->
         <div class="dropdown-menu">
-          <button (click)="editTeam(team)">Güncelle</button>
+          <button class="editBtn"  (click)="editTeam(team)">Güncelle</button>
         </div>
         <div class="dropdown-menu">
-          <button (click)="deleteTeam(team)">Sil</button>
+          <button class="deleteBtn" (click)="deleteTeam(team)">Sil</button>
+
         </div>
       </div>
-
     </div>
-
   </div>
+
 
 </div>

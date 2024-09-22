@@ -80,6 +80,7 @@ p,.teamIcon,.plusIcon,.icon,.captionSection{
   cursor:pointer;
 }
 .team {
+  position: relative;
   cursor: pointer;
  /*color: #787486;*/
   display: flex;
@@ -115,3 +116,23 @@ p,.teamIcon,.plusIcon,.icon,.captionSection{
   justify-content: center;
 }
 
+.editCls{
+  position: absolute;
+  left: 229px;
+  top: 18px;
+  border: 1px #fcd6e380 solid;
+  background-color: #333;
+  color: pink;
+  padding: 5px;
+  border-radius: 10px;
+  width: 69px;
+}
+.editBtn,.deleteBtn{
+  cursor: pointer;
+  background-color: inherit;
+  font-size: 12px;
+  padding: 3px;
+  color: #fff;
+  border:none;
+
+}

@@ -1,7 +1,12 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AllTeam } from '../../../models/allTeam';
 import { TeamService } from '../../../services/team-service';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { AddTeamModalComponent } from './add-team-modal/add-team-modal.component';
+import { EditTeamModalComponent } from './edit-team-modal/edit-team-modal.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -21,15 +26,12 @@ export class SideBarComponent implements OnInit {
   ];
 
   teams: any;
-  selectedIndex: number =0
-  isClicked:boolean=false;
-  isShowEditDelete:boolean=false
-  allTeam: AllTeam[] = [];
-  activeTeamIndex: number | null = null;  // Track the active team index
-
+  activeTeamIndex: number | null = null;  // Takip için aktif takım index
+  allTeam:any
   constructor(
     private router: Router,
     private teamService: TeamService,
+    private dialog:Dialog
   ) {}
 
   ngOnInit(): void {
@@ -47,32 +49,47 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  showOptions(isClicked:boolean,index:any){
-    this.isShowEditDelete=!this.isShowEditDelete
-
+  showOptions(index: number) {
     this.activeTeamIndex = this.activeTeamIndex === index ? null : index;
-
   }
 
-  selectedTeam(team:AllTeam){
-    console.log("selected team",team)
-  }
-  createNewTeam() {
-    console.log("selected team")
-  }
   editTeam(team: AllTeam) {
-    console.log("team team",team)
-  }
-  deleteTeam(team:AllTeam)
-  {
-    this.teamService.deleteTeam(team.id).subscribe({
-      next:(res)=>{
-        alert("Team successfl deleted!")
-      },
-      error:(err)=>{
-        console.log("error",err)
+    const dialogRef = this.dialog.open(EditTeamModalComponent, {
+      data: { team },  // Dialog'a veri gönder
+      width: '400px',
+    });
+
+    dialogRef.closed.subscribe(result => {
+      if (result) {
+        console.log('Dialog kapandı, takım güncellendi:', result);
+        this.getAllTeam();  // Takım güncellendikten sonra listeyi yenile
       }
-    })
+    });
   }
 
+  createNewTeam() {
+    const dialogRef = this.dialog.open(AddTeamModalComponent, {
+      width: '400px',
+    });
+
+    dialogRef.closed.subscribe(result => {
+      if (result) {
+        console.log('Yeni takım eklendi:', result);
+        this.getAllTeam();
+      }
+    });
+  }
+
+
+  deleteTeam(team: AllTeam) {
+    this.teamService.deleteTeam(team.id).subscribe({
+      next: (res) => {
+        alert("Takım başarıyla silindi!");
+        this.getAllTeam(); // Takım silindikten sonra listeyi yenile
+      },
+      error: (err) => {
+        console.log("Hata", err);
+      }
+    });
+  }
 }
