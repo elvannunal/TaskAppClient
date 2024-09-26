@@ -1,6 +1,6 @@
 <div class="wrapperSideBar">
   <div class="wrapperLeft">
-    <img class="logoImg" src="../../../assets/images/logo.png">
+    <img class="logoImg" src="https://i.ibb.co/hFqZcyy/logo.png" alt="logo">
     <h3 class="captionSection">Project Management</h3>
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
@@ -11,7 +11,7 @@
 
   <div class="wrapperSection">
 
-    <div class="wrapperTask" routerLink='/'>
+    <div class="wrapperTask" routerLink='/team'>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="icon">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -88,11 +88,11 @@
 
   <div class="allTeams">
     <div *ngFor="let team of allTeam; let i = index" class="team">
-      <div class="wrapperTeamName" routerLink="/team">
+      <div class="wrapperTeamName" (click)="selectedTeam(team)">
         <p [style.background-color]="colorCodes[i]" class="colorDots"></p>
         <p class="teamName">{{ team.teamName }}</p>
       </div>
-      <div class="wrapperIcon" (click)="showOptions(i)">
+      <!-- <div class="wrapperIcon" (click)="showOptions(i)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="teamIcon">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
@@ -100,7 +100,6 @@
       </div>
 
       <div *ngIf="activeTeamIndex === i" class="editCls">
-        <!-- Dropdown Menu -->
         <div class="dropdown-menu">
           <button class="editBtn"  (click)="editTeam(team)">Güncelle</button>
         </div>
@@ -108,7 +107,7 @@
           <button class="deleteBtn" (click)="deleteTeam(team)">Sil</button>
 
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

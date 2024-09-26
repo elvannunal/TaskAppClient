@@ -80,7 +80,6 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-
   deleteTeam(team: AllTeam) {
     this.teamService.deleteTeam(team.id).subscribe({
       next: (res) => {
@@ -92,4 +91,9 @@ export class SideBarComponent implements OnInit {
       }
     });
   }
+  
+  selectedTeam(team: AllTeam) {
+    this.router.navigate(['/team-detail', team.id]);
+  }
+
 }

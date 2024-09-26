@@ -11,6 +11,7 @@ import { LoginModel } from '../models/loginModel';
 })
 
 export class AuthService {
+
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }

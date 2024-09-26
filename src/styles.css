@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body{
   min-height: 100vh;
-  background: linear-gradient(rgb(0 0 0 / 7%), rgb(216 216 216 / 8%)), url(https://backiee.com/static/wallpapers/1000x563/365661.jpg);
+  background: linear-gradient(rgb(0 0 0 / 69%), rgb(216 216 216 / 0%)), url(https://backiee.com/static/wallpapers/1000x563/365661.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

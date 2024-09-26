@@ -1,19 +1,32 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Input, Component, Output, EventEmitter, OnInit } from '@angular/core';
+import {
+  Input,
+  Component,
+  Output,
+  EventEmitter,
+  OnInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../../services/auth-service';
+import { LoginCheckService } from '../../../../services/login-check.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   form: FormGroup;
-  isShowPassword:boolean=false;
+  isShowPassword: boolean = false;
   password: any;
+  isLogin: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public cdr: ChangeDetectorRef,
+    public dataSendService:LoginCheckService
+  ) {
     this.form = new FormGroup({
       username: new FormControl(''),
       password: new FormControl(''),
@@ -39,20 +52,26 @@ export class LoginComponent implements OnInit {
       this.authService.Login(data).subscribe({
         next: (res) => {
           if (res && res.token) {
+            this.isLogin = true;
+            this.dataSendService.changeData(this.isLogin)
             if (rememberMe) {
               this.authService.storeCredentials(username, password);
             } else {
               this.authService.clearCredentials();
             }
-
             this.authService.storeToken(res.token);
-            this.router.navigate(['/home-page']);
+            this.cdr.detectChanges();
+            this.router.navigate(['/homepage']);
           } else {
             console.log('Token found in response');
+            this.isLogin = false;
+            this.dataSendService.changeData(this.isLogin)
+
           }
         },
         error: (err) => {
           console.error('Login failed', err);
+          this.dataSendService.changeData(this.isLogin)
         },
       });
     }

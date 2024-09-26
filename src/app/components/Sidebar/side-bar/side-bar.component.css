@@ -1,7 +1,7 @@
 .wrapperSideBar{
+  width: 250px;
   border-right: 1.1px #DBDBDB solid;
-  width: 15pc;
-  height: 100vh;
+
  /* background-color: whitesmoke;*/
 }
 p,.teamIcon,.plusIcon,.icon,.captionSection{
@@ -89,6 +89,12 @@ p,.teamIcon,.plusIcon,.icon,.captionSection{
   padding: 15px 13px 7px 20px;
   background-color:  transparent;
 }
+.allTeams{
+  height: 380px;
+  overflow-y: scroll;
+  scrollbar-color: rgb(255, 255, 255) #ffffff !important;
+}
+
 .teamIcon{
  /*color: #787486;*/
   width: 23px;
