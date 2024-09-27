@@ -24,7 +24,6 @@ import { AddTeamModalComponent } from './components/Sidebar/side-bar/add-team-mo
 import { EditTeamModalComponent } from './components/Sidebar/side-bar/edit-team-modal/edit-team-modal.component';
 import { TeamDetailComponent } from './components/Team/team-detail/team-detail.component';
 import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.component';
-import { HomepageComponent } from './components/homepage/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { HomepageComponent } from './components/homepage/homepage/homepage.compo
     EditTeamModalComponent,
     TeamDetailComponent,
     AllTasksComponent,
-    HomepageComponent
   ],
   imports: [
     BrowserModule,

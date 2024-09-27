@@ -7,6 +7,7 @@ import { TeamService } from '../../../services/team-service';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { AddTeamModalComponent } from './add-team-modal/add-team-modal.component';
 import { EditTeamModalComponent } from './edit-team-modal/edit-team-modal.component';
+import { DataService } from '../../../services/data-service';
 
 @Component({
   selector: 'app-side-bar',
@@ -31,7 +32,8 @@ export class SideBarComponent implements OnInit {
   constructor(
     private router: Router,
     private teamService: TeamService,
-    private dialog:Dialog
+    private dialog:Dialog,
+    public dataService:DataService
   ) {}
 
   ngOnInit(): void {
@@ -91,8 +93,9 @@ export class SideBarComponent implements OnInit {
       }
     });
   }
-  
+
   selectedTeam(team: AllTeam) {
+    this.dataService.changeTeamNameData(team.teamName);
     this.router.navigate(['/team-detail', team.id]);
   }
 
