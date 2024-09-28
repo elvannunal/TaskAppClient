@@ -4,13 +4,13 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataSharedService {
 
   private dataSubject = new BehaviorSubject<boolean>(false);
   currentData = this.dataSubject.asObservable();
 
   private teamName = new BehaviorSubject<string>('');
-  currentTeamName = this.dataSubject.asObservable();
+  currentTeamName = this.teamName.asObservable();
 
   constructor() {}
 

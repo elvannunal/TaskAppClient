@@ -7,7 +7,7 @@ import { TeamService } from '../../../services/team-service';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { AddTeamModalComponent } from './add-team-modal/add-team-modal.component';
 import { EditTeamModalComponent } from './edit-team-modal/edit-team-modal.component';
-import { DataService } from '../../../services/data-service';
+import { DataSharedService } from '../../../services/data-service';
 
 @Component({
   selector: 'app-side-bar',
@@ -33,7 +33,7 @@ export class SideBarComponent implements OnInit {
     private router: Router,
     private teamService: TeamService,
     private dialog:Dialog,
-    public dataService:DataService
+    public dataService:DataSharedService
   ) {}
 
   ngOnInit(): void {

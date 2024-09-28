@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../../services/auth-service';
-import { DataService } from '../../../../services/data-service';
+import { DataSharedService } from '../../../../services/data-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     public cdr: ChangeDetectorRef,
-    public dataSendService:DataService
+    public dataSendService:DataSharedService
   ) {
     this.form = new FormGroup({
       username: new FormControl(''),
