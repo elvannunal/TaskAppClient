@@ -22,7 +22,6 @@
   font-size: 19px;
   padding-top: 13px;
   padding-left: 12px;
-  position: fixed;
   background: rgb(79 78 82);
   width: inherit;
   border-radius: 11px;
@@ -37,7 +36,7 @@
   margin-top:30px;
 }
 .task{
- 
+
     width: 319px;
     height: 135px;
     background-color: #f5f5f5b8;
