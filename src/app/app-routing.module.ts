@@ -6,11 +6,13 @@ import { AuthGuard } from './services/authGuard-service';
 import { SideBarComponent } from './components/Sidebar/side-bar/side-bar.component';
 import { TeamDetailComponent } from './components/Team/team-detail/team-detail.component';
 import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'homepage', component: HomepageComponent  , canActivate: [AuthGuard]},
   { path: 'side-bar', component: SideBarComponent , canActivate: [AuthGuard]},
   { path: 'team-detail/:id', component: TeamDetailComponent , canActivate: [AuthGuard]},
   { path: 'all-tasks', component: AllTasksComponent , canActivate: [AuthGuard]},

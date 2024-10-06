@@ -1,163 +1,29 @@
-<div class="row">
-  <h3 class="teamName">
-    {{teamNameData}}
+<div class="row" *ngIf="this.tasks">
+  <h3 class="teamName" >
+    {{ teamNameData }}
   </h3>
 
   <div class="row">
-      <div class="wrapper">
-      <div class="col-4">
+    <div class="wrapper">
+      <div *ngFor="let userId of (groupedTasks | keyvalue)" class="col-4">
         <div class="userTable">
-          <div class=" userNameWrapper">
+          <div class="userNameWrapper">
             <div class="caption">
-              user1
+              User ID: {{ userId.key }}
             </div>
             <div class="addMoreTask">
               +
             </div>
           </div>
           <div class="row d-flex flex-column tasks">
-            <div class="col-3 task">
-
+            <div *ngFor="let task of userId.value" class="col-3 task">
+              <p>{{ task.userTaskName }}</p>
+              <p>{{ task.description }}</p>
+              <p>Status: {{ task.status }}</p>
             </div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-
           </div>
         </div>
       </div>
-      <div class="col-4">
-        <div class="userTable">
-          <div class=" userNameWrapper">
-            <div class="caption">
-              user1
-            </div>
-            <div class="addMoreTask">
-              +
-            </div>
-          </div>
-          <div class="row d-flex flex-column tasks">
-            <div class="col-3 task">
-
-            </div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="userTable">
-          <div class=" userNameWrapper">
-            <div class="caption">
-              user1
-            </div>
-            <div class="addMoreTask">
-              +
-            </div>
-          </div>
-          <div class="row d-flex flex-column tasks">
-            <div class="col-3 task">
-
-            </div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="userTable">
-          <div class=" userNameWrapper">
-            <div class="caption">
-              user1
-            </div>
-            <div class="addMoreTask">
-              +
-            </div>
-          </div>
-          <div class="row d-flex flex-column tasks">
-            <div class="col-3 task">
-
-            </div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="userTable">
-          <div class=" userNameWrapper">
-            <div class="caption">
-              user1
-            </div>
-            <div class="addMoreTask">
-              +
-            </div>
-          </div>
-          <div class="row d-flex flex-column tasks">
-            <div class="col-3 task">
-
-            </div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-            <div class="col-3 task"></div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-
-
 </div>

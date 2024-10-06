@@ -24,6 +24,7 @@ import { AddTeamModalComponent } from './components/Sidebar/side-bar/add-team-mo
 import { EditTeamModalComponent } from './components/Sidebar/side-bar/edit-team-modal/edit-team-modal.component';
 import { TeamDetailComponent } from './components/Team/team-detail/team-detail.component';
 import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.compone
     EditTeamModalComponent,
     TeamDetailComponent,
     AllTasksComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.compone
     MatSelectModule,
     MatFormFieldModule,
     MatFormFieldModule,
+
 ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
