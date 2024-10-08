@@ -1,25 +1,31 @@
 <div class="row" *ngIf="this.tasks">
-  <h3 class="teamName" >
+  <h3 class="teamName">
     {{ teamNameData }}
   </h3>
 
   <div class="row">
     <div class="wrapper">
-      <div *ngFor="let userId of (groupedTasks | keyvalue)" class="col-4">
+      <div *ngFor="let userId of (groupedTasks | keyvalue)  let i = index" class="col-3 wrap">
         <div class="userTable">
           <div class="userNameWrapper">
             <div class="caption">
-              User ID: {{ userId.key }}
+              {{ userId.key }}
             </div>
+            <p [style.background-color]="colorCodes[i]" class="colorDots"></p>
+
             <div class="addMoreTask">
               +
             </div>
           </div>
           <div class="row d-flex flex-column tasks">
             <div *ngFor="let task of userId.value" class="col-3 task">
-              <p>{{ task.userTaskName }}</p>
-              <p>{{ task.description }}</p>
-              <p>Status: {{ task.status }}</p>
+              <p class="title">{{ task.userTaskName }}</p>
+              <p class="description">
+            {{ task.description }}</p>
+              <p>
+                <span>
+                  Status
+                </span> {{ task.status }}</p>
             </div>
           </div>
         </div>

@@ -8,11 +8,10 @@ import { environment } from '../../environments/environment';
 })
 export class UserService {
     constructor(private http: HttpClient) {}
-
     public GetAllUsers(): Observable<any> {
-      const url = `${environment.apiUrl}/User`;
-      return this.http.get(url);
+      return this.http.get<any>(`${environment.apiUrl}/User`);
     }
+
     public GetUserById(userId:string):Observable<any>{
       return this.http.get<any>(`${environment.apiUrl}`+userId)
     }

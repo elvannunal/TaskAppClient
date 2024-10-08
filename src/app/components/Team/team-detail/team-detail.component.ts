@@ -27,17 +27,16 @@ export class TeamDetailComponent implements OnInit {
   teamId: any;
   tasks: TaskModel[] = [];
   groupedTasks: { [key: string]: TaskModel[] } = {};
-
+  allUser: any;
+  assignedId: any;
   constructor(
     private dataService: DataSharedService,
     private taskService: TaskService,
     private route: ActivatedRoute,
-    private userService: UserService,
+    private userService: UserService
   ) {
     this.dataService.currentTeamName.subscribe((name) => {
-
-        this.teamNameData = name;
-
+      this.teamNameData = name;
     });
   }
   ngOnInit() {
@@ -48,6 +47,8 @@ export class TeamDetailComponent implements OnInit {
         this.getTaskByTeamId(this.teamId);
       }
     });
+
+    this.getAllUser();
   }
 
   getTaskByTeamId(id: any) {
@@ -65,18 +66,29 @@ export class TeamDetailComponent implements OnInit {
       },
     });
   }
-  groupTasksByUser(){
+  groupTasksByUser() {
     this.groupedTasks = {};
 
-    this.tasks.forEach(task=>{
-      const assignedId=task.assigneeId;
-      if(!this.groupedTasks[assignedId]){
-        this.groupedTasks[assignedId]=[];
+    this.tasks.forEach((task) => {
+      this.assignedId = task.assigneeId;
+
+      const user = this.allUser.find(
+        (u: { task: any; id: any; assignedId: any }) => u.id === this.assignedId
+      );
+      if (!this.groupedTasks[user.userName]) {
+        this.groupedTasks[user.userName] = [];
       }
-      this.groupedTasks[assignedId].push(task);
-    })
-
+      this.groupedTasks[user.userName].push(task);
+    });
   }
-
-
+  getAllUser() {
+    this.userService.GetAllUsers().subscribe({
+      next: (value) => {
+        this.allUser = value;
+      },
+      error: (err) => {
+        console.error('Error fetching users', err);
+      },
+    });
+  }
 }
