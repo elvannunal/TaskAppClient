@@ -2,30 +2,35 @@
   <h3 class="teamName">
     {{ teamNameData }}
   </h3>
-
   <div class="row">
     <div class="wrapper">
       <div *ngFor="let userId of (groupedTasks | keyvalue)  let i = index" class="col-3 wrap">
-        <div class="userTable">
+        <div class="userTable" [style.background-color]="colorCodes[i]">
           <div class="userNameWrapper">
             <div class="caption">
               {{ userId.key }}
             </div>
-            <p [style.background-color]="colorCodes[i]" class="colorDots"></p>
-
-            <div class="addMoreTask">
+            <!-- <p [style.background-color]="colorCodes[i]" class="colorDots"></p> -->
+            <div class="addMoreTask" (click)="openModalForAddTask()">
               +
             </div>
           </div>
           <div class="row d-flex flex-column tasks">
+
             <div *ngFor="let task of userId.value" class="col-3 task">
-              <p class="title">{{ task.userTaskName }}</p>
+              <div class="row">
+                <div class="col-10">
+                  <p class="title">{{ task.userTaskName }}</p>
+                </div>
+                <div class="col-2"> <i class="fas fa-ellipsis-v dots" (click)="openUpdateDeleteModal(task)"></i></div>
+              </div>
               <p class="description">
-            {{ task.description }}</p>
+                {{ task.description }}</p>
               <p>
                 <span>
-                  Status
-                </span> {{ task.status }}</p>
+                  {{ getStatusText(task.status) }}
+                </span> 
+              </p>
             </div>
           </div>
         </div>

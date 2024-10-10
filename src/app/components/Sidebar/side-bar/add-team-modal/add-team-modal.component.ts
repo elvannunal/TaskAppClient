@@ -8,6 +8,7 @@ import {
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,6 +42,14 @@ export class AddTeamModalComponent {
     this.teamService.createTeam(this.team).subscribe({
       next:(res)=>{
         this.data=res;
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Task Created',
+          text: 'The task was successfully created!',
+        });
+
+        
         console.log("data",this.data)
         console.log("res",res)
 

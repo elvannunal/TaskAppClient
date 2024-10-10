@@ -5,6 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TaskModel } from '../../../models/taskModel';
 import Swal from 'sweetalert2';
 import { UserService } from '../../../services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTeamModalComponent } from '../../Sidebar/side-bar/add-team-modal/add-team-modal.component';
+import { AddTaskModalComponent } from '../../Task/add-task-modal/add-task-modal.component';
+import { UpdateDeleteTaskModalComponent } from '../../Task/update-delete-task-modal/update-delete-task-modal.component';
 
 @Component({
   selector: 'app-team-detail',
@@ -13,14 +17,15 @@ import { UserService } from '../../../services/user.service';
 })
 export class TeamDetailComponent implements OnInit {
   colorCodes = [
-    '#7AC555',
-    '#FFA500',
-    '#E4CCFD',
-    '#76A5EA',
-    '#8BC48A',
-    '#FFA500',
-    '#5030E5',
-    '#800080',
+    '#A8DADC',
+  '#F4A261',
+  '#C9ADA7',
+  '#457B9D',
+  '#B5E48C',
+  '#FFDDC1',
+  '#6D597A',
+  '#84A59D',
+
   ];
 
   teamNameData: any;
@@ -33,7 +38,8 @@ export class TeamDetailComponent implements OnInit {
     private dataService: DataSharedService,
     private taskService: TaskService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    public dialog:MatDialog
   ) {
     this.dataService.currentTeamName.subscribe((name) => {
       this.teamNameData = name;
@@ -91,4 +97,25 @@ export class TeamDetailComponent implements OnInit {
       },
     });
   }
+  openModalForAddTask() {
+    const dialogRef = this.dialog.open(AddTaskModalComponent, {
+      data: { assigneeId: this.assignedId, teamId: this.teamId }
+    });
+  }
+
+  openUpdateDeleteModal(taskData:any){
+    const dialogRef = this.dialog.open(UpdateDeleteTaskModalComponent, {
+      data: taskData
+    });
+  }
+  getStatusText(status: number): string {
+    const statusMap: { [key: number]: string } = {
+      1: 'Open',
+      2: 'In Progress',
+      3: 'Done'
+    };
+
+    return statusMap[status] || 'Open';
+  }
+
 }

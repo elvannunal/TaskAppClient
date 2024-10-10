@@ -16,18 +16,18 @@ export class TaskService {
 
   //create new task
   public createTask(userTask: any): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/Task/Create`, userTask);
+    return this.http.post<any>(`${environment.apiUrl}/Task`, userTask);
   }
 
   //delete task using task id
   public deleteTask(id: any): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/Task/Delete/` + id);
+    return this.http.delete<any>(`${environment.apiUrl}/Task/` + id);
   }
   //update task
   // TaskService'deki updateTask fonksiyonu
   public updateTask(data: any, taskId: string): Observable<any> {
     return this.http.put<any>(
-      `${environment.apiUrl}/Task/Update/${taskId}`,
+      `${environment.apiUrl}/Task/${taskId}`,
       data
     );
   }

@@ -1,25 +1,28 @@
-.teamName{
-  color:#fff;
-  padding: 30px;
+.teamName {
+  padding-left: 30px;
+  font-weight: 400;
+  color: #a3a3a3db;
+  margin-top: 13px;
+  margin-left: 4px;
 }
-.wrap{    padding: 3px;
+.wrap {
+  padding: 3px;
   margin-right: 61px;
 }
-.wrapper
-{
-  margin:15px;
+.wrapper {
+  margin: 15px;
   display: flex;
   overflow-x: scroll;
 }
-.userTable{
+.userTable {
   width: 340px;
   height: 640px;
-  background-color:#f5f5f5b8;
-  color:#333;
+  background-color: #f5f5f5b8;
+  color: #333;
   border-radius: 10px;
   overflow-y: scroll;
 }
-.userNameWrapper{
+.userNameWrapper {
   display: flex;
   align-items: center;
   font-size: 19px;
@@ -27,23 +30,28 @@
   padding: 9px;
   text-transform: capitalize;
 }
-.addMoreTask{
-  margin-left: 16pc;
+.addMoreTask {
+  margin-left: 14pc;
+  width: 27px;
+  font-size: 29px;
+  border-radius: 50%;
+  border: 1px #000000 solid;
+  cursor:pointer;
+  text-align: center;
+  background: linear-gradient(45deg, #0000004a, transparent);
 }
-.tasks{
+.tasks {
   padding: 22px;
-
 }
-.task{
-
-    width: 319px;
-    height: 135px;
-    background-color:#F5F5F5;
-    color: #333;
-    border-radius: 9px;
-    margin-top: 6px;
+.task {
+  width: 319px;
+  height: 135px;
+  background-color: #f5f5f5;
+  color: #333;
+  border-radius: 9px;
+  margin-top: 6px;
 }
-.colorDots{
+.colorDots {
   width: 332px;
   height: 6px;
   z-index: 9999;
@@ -52,15 +60,21 @@
   border-radius: 4px;
   margin-top: 53px;
 }
-.title{
+.title {
   font-size: larger;
   font-weight: 500;
   text-transform: capitalize;
   margin-top: 8px;
-
 }
-.description{
+.description {
   color: #656565db;
   font-size: 14px;
   margin-top: -13px;
+}
+.dots
+{
+  font-size: 15px;
+  margin-left: 17px;
+  margin-top: 9px;
+  cursor: pointer;
 }

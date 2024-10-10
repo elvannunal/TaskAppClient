@@ -57,14 +57,14 @@ export class SideBarComponent implements OnInit {
 
   editTeam(team: AllTeam) {
     const dialogRef = this.dialog.open(EditTeamModalComponent, {
-      data: { team },  // Dialog'a veri gönder
+      data: { team },
       width: '400px',
     });
 
     dialogRef.closed.subscribe(result => {
       if (result) {
         console.log('Dialog kapandı, takım güncellendi:', result);
-        this.getAllTeam();  // Takım güncellendikten sonra listeyi yenile
+        this.getAllTeam();
       }
     });
   }
@@ -74,19 +74,22 @@ export class SideBarComponent implements OnInit {
       width: '400px',
     });
 
+
     dialogRef.closed.subscribe(result => {
       if (result) {
-        console.log('Yeni takım eklendi:', result);
         this.getAllTeam();
       }
     });
   }
 
+
+
+
   deleteTeam(team: AllTeam) {
     this.teamService.deleteTeam(team.id).subscribe({
       next: (res) => {
         alert("Takım başarıyla silindi!");
-        this.getAllTeam(); // Takım silindikten sonra listeyi yenile
+        this.getAllTeam();
       },
       error: (err) => {
         console.log("Hata", err);

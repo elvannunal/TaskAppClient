@@ -114,6 +114,7 @@ p,.teamIcon,.plusIcon,.icon,.captionSection{
 .teamName{
   padding-left: 6px;
   font-weight: 500;
+  cursor: pointer;
   letter-spacing: 1.3px;
 }
 .wrapperTeamName{
