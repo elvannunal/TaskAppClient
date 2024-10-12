@@ -27,6 +27,7 @@ import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.compone
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AddTaskModalComponent } from './components/Task/add-task-modal/add-task-modal.component';
 import { UpdateDeleteTaskModalComponent } from './components/Task/update-delete-task-modal/update-delete-task-modal.component';
+import { AddTeamToTaskModalComponent } from './components/Team/add-team-to-task-modal/add-team-to-task-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +37,11 @@ import { UpdateDeleteTaskModalComponent } from './components/Task/update-delete-
     EditTeamModalComponent,
     TeamDetailComponent,
     AllTasksComponent,
+    LoginComponent,
     HomepageComponent,
     AddTaskModalComponent,
     UpdateDeleteTaskModalComponent,
+    AddTeamToTaskModalComponent
   ],
   imports: [
     BrowserModule,

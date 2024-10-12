@@ -1,0 +1,30 @@
+<div class="modal-container">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Task Ekle</h5>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input class="form-control" placeholder="Task Name" [(ngModel)]="userTaskName">
+      <textarea class="form-control" placeholder="Description" [(ngModel)]="description"></textarea>
+
+      <select class="form-select" [(ngModel)]="status">
+        <option value="" disabled selected>Status</option>
+        <option value="1">Open</option>
+        <option value="2">In Progress</option>
+        <option value="3">Done</option>
+      </select>
+
+      <select class="form-select" [(ngModel)]="assigneeId">
+        <option value="" disabled selected>Select User</option>
+        <option *ngFor="let user of userList" [value]="user.id">
+          {{ user.userName }}
+        </option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+      <button type="button" class="btn btn-primary" (click)="addNewTask()">Add Task</button>
+    </div>
+  </div>
+</div>

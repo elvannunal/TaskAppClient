@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TaskModel } from '../models/taskModel';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,12 @@ export class DataSharedService {
     this.teamName.next(teamNameData);
   }
 
+  private dataSource = new BehaviorSubject<boolean>(false);
+  currentDataLogin = this.dataSource.asObservable();
+
+
+
+  updateData(isLoggedIn: boolean) {
+    this.dataSource.next(isLoggedIn);  
+  }
 }

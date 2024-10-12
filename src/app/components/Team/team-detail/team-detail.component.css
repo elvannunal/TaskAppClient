@@ -1,7 +1,7 @@
 .teamName {
   padding-left: 30px;
   font-weight: 400;
-  color: #a3a3a3db;
+  color: #fff;
   margin-top: 13px;
   margin-left: 4px;
 }
@@ -77,4 +77,13 @@
   margin-left: 17px;
   margin-top: 9px;
   cursor: pointer;
+}
+.addMoreTeamtoTask{
+  width: 27px;
+  font-size: 29px;
+  border-radius: 50%;
+  border: 1px #000000 solid;
+  cursor:pointer;
+  text-align: center;
+  background:#fff;
 }

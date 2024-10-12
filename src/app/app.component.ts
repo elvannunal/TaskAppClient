@@ -8,14 +8,17 @@ import { DataSharedService } from './services/data-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   title = 'TaskStreamClient';
-  isLogin: boolean=false;
+  isLogin: boolean = false;
+  isToken: boolean = false;
 
-  constructor(public dataService:DataSharedService) {
-    this.dataService.currentData.subscribe(data=>{
-      this.isLogin=data
-    })
+  constructor(public dataService: DataSharedService, public authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.isToken = this.authService.isAuthenticated();
+    this.dataService.currentData.subscribe(data => {
+      this.isLogin = data;
+    });
   }
-
 }

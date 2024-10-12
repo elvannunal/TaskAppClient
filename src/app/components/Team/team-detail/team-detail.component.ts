@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTeamModalComponent } from '../../Sidebar/side-bar/add-team-modal/add-team-modal.component';
 import { AddTaskModalComponent } from '../../Task/add-task-modal/add-task-modal.component';
 import { UpdateDeleteTaskModalComponent } from '../../Task/update-delete-task-modal/update-delete-task-modal.component';
+import { AddTeamToTaskModalComponent } from '../add-team-to-task-modal/add-team-to-task-modal.component';
 
 @Component({
   selector: 'app-team-detail',
@@ -18,14 +19,13 @@ import { UpdateDeleteTaskModalComponent } from '../../Task/update-delete-task-mo
 export class TeamDetailComponent implements OnInit {
   colorCodes = [
     '#A8DADC',
-  '#F4A261',
-  '#C9ADA7',
-  '#457B9D',
-  '#B5E48C',
-  '#FFDDC1',
-  '#6D597A',
-  '#84A59D',
-
+    '#F4A261',
+    '#C9ADA7',
+    '#457B9D',
+    '#B5E48C',
+    '#FFDDC1',
+    '#6D597A',
+    '#84A59D',
   ];
 
   teamNameData: any;
@@ -39,7 +39,7 @@ export class TeamDetailComponent implements OnInit {
     private taskService: TaskService,
     private route: ActivatedRoute,
     private userService: UserService,
-    public dialog:MatDialog
+    public dialog: MatDialog
   ) {
     this.dataService.currentTeamName.subscribe((name) => {
       this.teamNameData = name;
@@ -99,23 +99,46 @@ export class TeamDetailComponent implements OnInit {
   }
   openModalForAddTask() {
     const dialogRef = this.dialog.open(AddTaskModalComponent, {
-      data: { assigneeId: this.assignedId, teamId: this.teamId }
+      data: { assigneeId: this.assignedId, teamId: this.teamId },
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        this.getTaskByTeamId(this.teamId);
+      }
     });
   }
 
-  openUpdateDeleteModal(taskData:any){
+  openUpdateDeleteModal(taskData: any) {
     const dialogRef = this.dialog.open(UpdateDeleteTaskModalComponent, {
-      data: taskData
+      data: taskData,
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        this.getTaskByTeamId(this.teamId);
+      }
     });
   }
   getStatusText(status: number): string {
     const statusMap: { [key: number]: string } = {
       1: 'Open',
       2: 'In Progress',
-      3: 'Done'
+      3: 'Done',
     };
 
     return statusMap[status] || 'Open';
   }
 
+  addUserToTeam(){
+    const dialogRef = this.dialog.open(AddTeamToTaskModalComponent, {
+      data: {teamId: this.teamId }
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        this.getTaskByTeamId(this.teamId);
+      }
+    });
+  }
 }

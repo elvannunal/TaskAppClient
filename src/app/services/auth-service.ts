@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {environment} from "../../environments/environment";
 import { RegisterModel } from '../models/registerModel';
 import { LoginModel } from '../models/loginModel';
+import { DataSharedService } from './data-service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private dataService:DataSharedService) { }
 
   public Register(data:RegisterModel):Observable<any>{
     const url=`${environment.apiUrl}/Auth/register`
@@ -29,8 +30,9 @@ export class AuthService {
   }
 
 
-  public storeToken(token: string): void {
+  storeToken(token: string): void {
     localStorage.setItem('token', token);
+    this.dataService.updateData(true); // Kullanıcının giriş yaptığını bildir
   }
 
   public storeCredentials(username: string, password: string): void {

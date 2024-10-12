@@ -1,7 +1,18 @@
 <div class="row" *ngIf="this.tasks">
-  <h3 class="teamName">
-    {{ teamNameData }}
-  </h3>
+  <div class="row">
+    <div class="col-4">
+      <h3 class="teamName">
+        {{ teamNameData }}
+      </h3>
+    </div>
+    <div class="col-1 my-4">
+      <div class="addMoreTeamtoTask" (click)="addUserToTeam()">
+        +
+      </div>
+    </div>
+
+  </div>
+
   <div class="row">
     <div class="wrapper">
       <div *ngFor="let userId of (groupedTasks | keyvalue)  let i = index" class="col-3 wrap">
@@ -29,7 +40,7 @@
               <p>
                 <span>
                   {{ getStatusText(task.status) }}
-                </span> 
+                </span>
               </p>
             </div>
           </div>
