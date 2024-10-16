@@ -78,11 +78,7 @@ export class AllTasksComponent implements OnInit {
         }
         this.groupedTasks[user.userName].push(task);
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong. Please try again!',
-        });
+        console.warn(`User not found for task: ${task.id}`);
       }
     });
   }
