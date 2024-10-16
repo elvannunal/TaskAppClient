@@ -61,12 +61,11 @@ export class LoginComponent implements OnInit {
             }
             this.authService.storeToken(res.token);
             this.cdr.detectChanges();
-          //  this.router.navigate(['/all-tasks']);
+
           } else {
             console.log('Token found in response');
             this.isLogin = false;
             this.dataSendService.changeData(this.isLogin)
-
           }
         },
         error: (err) => {

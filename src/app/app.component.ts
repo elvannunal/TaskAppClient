@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   isLogin: boolean = false;
   isToken: boolean = false;
 
-  constructor(public dataService: DataSharedService, public authService: AuthService) {}
+  constructor(public dataService: DataSharedService, public authService: AuthService,public route:Router) {}
 
   ngOnInit(): void {
     this.isToken = this.authService.isAuthenticated();
@@ -21,4 +21,5 @@ export class AppComponent implements OnInit {
       this.isLogin = data;
     });
   }
+
 }

@@ -1,1 +1,32 @@
-<p>all-tasks works!</p>
+
+<div class="row">
+  <div class="wrapper">
+    <div *ngFor="let userId of (groupedTasks | keyvalue)  let i = index" class="col-3 wrap">
+      <div class="userTable" [style.background-color]="colorCodes[i]">
+        <div class="userNameWrapper">
+          <div class="caption">
+            {{ userId.key }}
+          </div>
+
+        </div>
+        <div class="row d-flex flex-column tasks">
+
+          <div *ngFor="let task of userId.value" class="col-3 task">
+            <div class="row">
+              <div class="col-12">
+                <p class="title">{{ task.userTaskName }}</p>
+              </div>
+            </div>
+            <p class="description">
+              {{ task.description }}</p>
+            <p>
+              <span>
+                {{ getStatusText(task.status) }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

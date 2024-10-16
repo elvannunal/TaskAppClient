@@ -14,7 +14,8 @@ import { DataSharedService } from './data-service';
 export class AuthService {
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    return !!token; 
   }
 
   constructor(private http: HttpClient,private dataService:DataSharedService) { }
@@ -32,7 +33,7 @@ export class AuthService {
 
   storeToken(token: string): void {
     localStorage.setItem('token', token);
-    this.dataService.updateData(true); // Kullanıcının giriş yaptığını bildir
+    this.dataService.updateData(true);
   }
 
   public storeCredentials(username: string, password: string): void {
