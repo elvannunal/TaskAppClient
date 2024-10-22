@@ -7,6 +7,7 @@ import { SideBarComponent } from './components/Sidebar/side-bar/side-bar.compone
 import { TeamDetailComponent } from './components/Team/team-detail/team-detail.component';
 import { AllTasksComponent } from './components/Task/all-tasks/all-tasks.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UserRoleManagementComponent } from './components/user-role/user-role-management/user-role-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'side-bar', component: SideBarComponent , canActivate: [AuthGuard]},
   { path: 'team-detail/:id', component: TeamDetailComponent , canActivate: [AuthGuard]},
   { path: 'all-tasks', component: AllTasksComponent , canActivate: [AuthGuard]},
+  { path: 'user-role-management', component: UserRoleManagementComponent , canActivate: [AuthGuard]},
 
 ];
 

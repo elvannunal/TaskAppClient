@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h4>User Role Management</h4>
+
+  <!-- Table to display users and their roles -->
+  <table class="table table-bordered table-hover m-3">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <!-- Username Column -->
+        <td>{{ user.userName }}</td>
+
+        <!-- Role Dropdown Column -->
+        <td>
+          <select class="form-control" [(ngModel)]="user.selectedRole ">
+            <option value="">Select Role</option>
+            <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option>
+          </select>
+        </td>
+
+        <!-- Action Button Column -->
+        <td>
+          <button class="btn btn-primary" (click)="assignRoles(user)">
+            Assign Role
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Success Snackbar -->
+  <div *ngIf="snackBarMessage" class="alert alert-success" role="alert">
+    {{ snackBarMessage }}
+  </div>
+</div>

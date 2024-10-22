@@ -28,6 +28,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AddTaskModalComponent } from './components/Task/add-task-modal/add-task-modal.component';
 import { UpdateDeleteTaskModalComponent } from './components/Task/update-delete-task-modal/update-delete-task-modal.component';
 import { AddTeamToTaskModalComponent } from './components/Team/add-team-to-task-modal/add-team-to-task-modal.component';
+import { UserRoleManagementComponent } from './components/user-role/user-role-management/user-role-management.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AddTeamToTaskModalComponent } from './components/Team/add-team-to-task-
     HomepageComponent,
     AddTaskModalComponent,
     UpdateDeleteTaskModalComponent,
-    AddTeamToTaskModalComponent
+    AddTeamToTaskModalComponent,
+    UserRoleManagementComponent
   ],
   imports: [
     BrowserModule,
